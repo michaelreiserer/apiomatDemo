@@ -179,7 +179,7 @@ public interface IModelMethods
 	public void setCreatedAt( final Date createdAt );
 
 	/**
-	 * Loads a resource as byte arraay from url
+	 * Loads a resource as byte array from url
 	 *
 	 * @param href
 	 * @return byte array
@@ -421,7 +421,7 @@ public interface IModelMethods
 		final String className, final Request r );
 
 	/**
-	 * finds the objects by name and query
+	 * Finds objects by name and query
 	 *
 	 * @param className
 	 *        the classname of the object
@@ -429,7 +429,7 @@ public interface IModelMethods
 	 *        the query
 	 * @param r
 	 *        the request
-	 * @return the objects found for that query
+	 * @return Found objects. Null if strictChecks is enabled and access to one of the found models is unauthorized.
 	 */
 	public IModel<?>[ ] findByNames( final String className, final String query,
 		final Request r );

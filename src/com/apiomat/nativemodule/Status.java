@@ -112,6 +112,7 @@ public enum Status
     ORGANIZATION_NOT_FOUND( 810, "Organization was not found!" ),
     GROUP_NOT_FOUND( 811, "Group was not found!" ),
     ACCOUNT_NOT_FOUND( 812, "Account was not found!" ),
+    DEFAULT_MODULE_NOT_FOUND( 813, "Default module was not found for the given account" ),
     MODULE_USE_FORBIDDEN( 820, "Required module is not attached to app" ),
     PUSH_ERROR_APIKEY( 821, "No API Key defined for Push service!" ),
     PUSH_ERROR_CERTIFICATE( 822, "No certificate defined for Push service!" ),
@@ -134,6 +135,7 @@ public enum Status
     PLAN_INACTIVE( 1829, "Plan is not selectable!" ),
     ENTERPRISE( 1830, "Only available for enterprise installations." ),
     ACCOUNT_UNACCEPTED_CONTRACTS( 1831, "Account has unaccepted Contracts" ),
+    DELETE_MANDATORY_DEFAULT_MODULE( 1832, "It is not allowed to remove this default module" ),
     ID_EXISTS( 830, "ID exists!" ),
     NAME_RESERVED( 831, "Name is reserved!" ),
     CIRCULAR_DEPENDENCY( 832, "You can't set circular inheritance!" ),
@@ -172,6 +174,9 @@ public enum Status
     NATIVEMODULE_PUSH( 925, "Could not push git repository" ),
     NO_DOGET_RETURN( 926, "The module's doGet didn't return a model" ),
     CUSTOMER_TWO_ORGS( 927, "The customer was found in two organizations" ),
+    NATIVEMODULE_HOOKS_NOT_FOUND( 928, "Annotated hook class not found" ),
+    ANALYTICS_ERROR( 929, "The analytics instance couldn't process the request correctly" ),
+    EMAIL_ERROR( 930, "Error during sending email" ),
     HREF_NOT_FOUND( 601, "Class has no HREF; please save it first!" ),
     WRONG_URI_SYNTAX( 602, "URI syntax is wrong" ),
     WRONG_CLIENT_PROTOCOL( 603, "Client protocol is wrong" ),
@@ -193,6 +198,7 @@ public enum Status
     IN_DELETING_PROCESS( 619, "Object is in deleting process. Please try again later" ),
     SSO_REDIRECT( 620, "The request was redirected to an SSO Identity Provider" ),
     MANUAL_CONCURRENT_WRITE_FAILED( 621, "Concurrent write to own concurrent data type failed" ),
+    SAVE_FAILED( 622, "Load not executed because save already failed" ),
     MALICIOUS_MEMBER( 950, "Malicious use of member detected!" ),
     NULL(9999, ""); //placeholder
 

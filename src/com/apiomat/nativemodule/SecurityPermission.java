@@ -1,4 +1,4 @@
-/* Copyright (c) 2011 - 2016, Apinauten GmbH
+/* Copyright (c) 2011 - 2015, Apinauten GmbH
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -30,38 +30,21 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation for modules
+ * Annotation for additional JAVA security permissions
  *
  * @author andreas
  */
 @Retention( RetentionPolicy.RUNTIME )
 @Target( value = ElementType.TYPE )
-public @interface Module
+public @interface SecurityPermission
 {
 	/**
-	 * The description of the module
+	 * @return Classname of the permission
 	 */
-	String description( ) default "";
+	String className( ) default "";
 
 	/**
-	 * The category of the module
+	 * @return parameters for the class
 	 */
-	String category( ) default "";
-
-	/**
-	 * The URL where documentation for this module can be found
-	 */
-	String documentationURL( ) default "";
-
-	/**
-	 * The used modules which are required to use this module
-	 */
-	String[ ] usedModules( ) default { };
-
-	/**
-	 * Array of needed JAVA security permissions; module must be deployed as superadmin to enable these!
-	 *
-	 * @return Array of needed JAVA security permissions
-	 */
-	SecurityPermission[ ] securityPermissions( ) default { };
+	String[ ] parameters( ) default { };
 }

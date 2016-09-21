@@ -43,6 +43,13 @@ public @interface Model
 	 */
 	String hooksClassName( ) default "";
 
+	/* The {@link IModelHooksTransient} implementation class name (com.apiomat.backend.modules.YOURMODULENAME.CLASSNAME) */
+	String hooksClassNameTransient( ) default "";
+
+	/* The {@link IModelHooksNonTransient} implementation class name
+	 * (com.apiomat.backend.modules.YOURMODULENAME.CLASSNAME) */
+	String hooksClassNameNonTransient( ) default "";
+
 	/** Name of the module where the {@link IModelHooks} implementation is in */
 	String moduleName( ) default "";
 
@@ -106,6 +113,16 @@ public @interface Model
 	/**
 	 * TRUE if the auth hook method should be used for authentication instead of ApiOmat's internal auth
 	 */
-	boolean useOwnAuth( ) default false;
+	AuthState useOwnAuth( ) default AuthState.UNKNOWN;
 
+	/**
+	 * Only important in combination with "useOwnAuth == AuthState.YES".
+	 * TRUE if the NM auth class developer wants ApiOmat to call the auth hook method,
+	 * even if the token was authenticated by ApiOmat and is valid.
+	 * Invalid tokens get rejected by ApiOmat automatically and don't get passed to an auth hook method.
+	 *
+	 * Note: The request to get a token in exchange for credentials
+	 * went through the configured auth class(es) in either case.
+	 */
+	boolean callAuthWithValidToken( ) default true;
 }
